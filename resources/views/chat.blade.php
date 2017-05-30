@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
-    <div id="app">
+    <div id="app" class="container">
       <h1>Chatroom</h1>
-      <chat-log></chat-log>
-      <chat-composer></chat-composer>
+      <chat-log :messages="messages"></chat-log>
+      <chat-composer v-on:messagesent="addMessage"></chat-composer>
     </div>
     <script src="js/app.js" charset="utf-8"></script>
   </body>
