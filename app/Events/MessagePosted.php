@@ -2,6 +2,8 @@
 
 namespace App\Events;
 
+use App\Message;
+use App\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -15,13 +17,23 @@ class MessagePosted
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
+     * Message
+     *
+     * @var Message
+     */
+
+    public $message;
+    public $user;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Message $message, User $user)
     {
-        //
+        $this->message = $message;
+        $this->user = $user;
     }
 
     /**
